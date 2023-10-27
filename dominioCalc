@@ -1,0 +1,91 @@
+package CalculadoraAAA.dominio;
+
+public class Calculadora {
+    public double catetoOposto, hipotenusa, catetoAdjacente, valor1, valor2, resultado, Delta, i, t, C, J, c, a, r, pi, h, A, b, X1, X2;
+    public char operador;
+    public void Resposta() {
+        switch (operador) {
+            case '+':
+                Soma();
+                break;
+            case '-':
+                Subtracao();
+                break;
+            case '*':
+                Multiplicacao();
+                break;
+            case '/':
+                Divisao();
+                break;
+            case '^':
+                Potenciacao();
+                break;
+            case 'v':
+                RaizQuadrada();
+                break;
+        }
+    }
+    public void Soma(){
+        resultado = valor1 + valor2;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void Subtracao(){
+        resultado = valor1 - valor2;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void Multiplicacao(){
+        resultado = valor1 * valor2;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void Divisao(){
+        resultado = valor1 / valor2;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void Potenciacao(){
+        resultado = Math.pow(valor1, valor2);
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void RaizQuadrada(){
+        resultado = Math.sqrt(valor1);
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+
+    //Formulas
+
+    public void F_Retangulo(){
+        A = b * h;
+        System.out.printf("\nResultado: %.2f%n", A);
+    }
+    public void F_Triangulo(){
+        A = b * h / 2;
+        System.out.printf("\nResultado: %.2f%n", A);
+    }
+    public void F_Círculo(){
+        A = pi * Math.pow(r, 2);
+        System.out.printf("\nResultado: %.2f%n", A);
+    }
+    public void F_Equacao2Grau(){
+        Delta = Math.pow(b, 2) - 4 * a * c;
+        X1 =  (-b + Math.sqrt(Delta)) / 2*a;
+        X2 =  (-b - Math.sqrt(Delta)) / 2*a;
+        System.out.printf("\nResultado: %.2f%n", Delta);
+        System.out.printf("Resultado: %.2f%n", X1);
+        System.out.printf("Resultado: %.2f%n", X2);
+    }
+    public void Juros(){
+        J = C * i * t;
+        System.out.printf("\nResultado: %.2f%n", J);
+    }
+    public void TrigonometriaSeno(){
+        resultado = catetoOposto / hipotenusa;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void TrigonometriaCosseno(){
+        resultado = catetoAdjacente / hipotenusa;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+    public void TrigonometriaTangente(){
+        resultado = catetoOposto / catetoAdjacente;
+        System.out.printf("\nResultado: %.2f%n", resultado);
+    }
+}
