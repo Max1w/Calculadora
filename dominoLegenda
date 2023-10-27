@@ -1,0 +1,50 @@
+package CalculadoraAAA.dominio;
+
+public class Legenda {
+    public void ImprimeLegenda() {
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Adição aperte o caracter     |'+'|     |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Substração aperte o caracter    |'-'|  |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Multiplicação aperte o caracter  |'*'| |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Divisão aperte o caracter    |'/'|     |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Potência aperte o caracter    |'^'|    |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|RaizQuadrada aperte o caracter   |'v'  |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Trigonometria aperte o caracter |'t'|  |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Formulas aperte o caracter |'F'|       |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Juros aperte o caracter |'J'|          |");
+        System.out.println("|---------------------------------------|");
+        System.out.println();
+    }
+
+    public void ImprimeLegendaTri() {
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Seno aperte o caracter     |'S'|       |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Cosseno aperte o caracter    |'C'|     |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Tangente aperte o caracter  |'T'|      |");
+        System.out.println("|---------------------------------------|");
+        System.out.println();
+    }
+
+    public void ImprimeLegendaForm() {
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Retangulo aperte o caracter     |'R'|  |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Triangulo aperte o caracter    |'T'|   |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Circulo aperte o caracter  |'C'|       |");
+        System.out.println("|---------------------------------------|");
+        System.out.println("|Equação 2ºGrau aperte o caracter |'º'| |");
+        System.out.println("|---------------------------------------|");
+        System.out.println();
+    }
+}
