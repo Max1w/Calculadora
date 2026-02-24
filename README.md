@@ -1,20 +1,6 @@
-# Calculadora - Projeto Acadêmico
+# Calculadora
 
-Calculadora desenvolvida em Java como projeto acadêmico, com suporte a operações aritméticas básicas, trigonometria, fórmulas geométricas, equação do 2º grau e juros simples.
-
----
-
-## Autor
-
-**Max Willian**
-
----
-
-## Tecnologias Utilizadas
-
-- **Linguagem:** Java
-- **Paradigma:** Orientação a Objetos
-- **Pacote:** `CalculadoraAAA.dominio`
+Projeto acadêmico de uma calculadora desenvolvida em Java com operações aritméticas, trigonometria, fórmulas geométricas, equação do 2º grau e juros simples.
 
 ---
 
@@ -22,79 +8,146 @@ Calculadora desenvolvida em Java como projeto acadêmico, com suporte a operaç�
 
 ```
 Calculadora/
-├── dominioCalc      # Classe principal Calculadora (lógica de cálculo)
-├── dominoLegenda    # Classe Legenda (menus de navegação)
-└── appCalc          # Classe de aplicação
+├── dominioCalc      # Classe Calculadora
+├── appCalc          # Classe Calculadora (duplicata)
+└── dominoLegenda    # Classe Legenda
 ```
 
-### Classes
+> `dominioCalc` e `appCalc` contêm o mesmo código da classe `Calculadora`.
 
-#### `Calculadora` (`dominioCalc` / `appCalc`)
-
-Classe principal que contém toda a lógica de cálculo.
-
-**Atributos públicos:**
-
-| Atributo | Descrição |
-|---|---|
-| `valor1`, `valor2` | Operandos das operações básicas |
-| `resultado` | Resultado das operações |
-| `operador` | Caractere que define a operação |
-| `a`, `b`, `c` | Coeficientes da equação do 2º grau |
-| `Delta`, `X1`, `X2` | Resultado da equação do 2º grau |
-| `b`, `h` | Base e altura (fórmulas geométricas) |
-| `r`, `pi` | Raio e PI (área do círculo) |
-| `A` | Área resultante |
-| `C`, `i`, `t`, `J` | Capital, taxa, tempo e juros (juros simples) |
-| `catetoOposto`, `catetoAdjacente`, `hipotenusa` | Lados do triângulo (trigonometria) |
-
-#### `Legenda` (`dominoLegenda`)
-
-Classe responsável por exibir os menus de navegação no console.
+**Pacote:** `CalculadoraAAA.dominio`
 
 ---
 
-## Funcionalidades
+## Classe `Calculadora`
 
-### Operações Aritméticas Básicas
+### Atributos
 
-| Operação | Tecla | Método | Fórmula |
-|---|---|---|---|
-| Adição | `+` | `Soma()` | `resultado = valor1 + valor2` |
-| Subtração | `-` | `Subtracao()` | `resultado = valor1 - valor2` |
-| Multiplicação | `*` | `Multiplicacao()` | `resultado = valor1 * valor2` |
-| Divisão | `/` | `Divisao()` | `resultado = valor1 / valor2` |
-| Potenciação | `^` | `Potenciacao()` | `resultado = valor1 ^ valor2` |
-| Raiz Quadrada | `v` | `RaizQuadrada()` | `resultado = √valor1` |
+```java
+public double catetoOposto, hipotenusa, catetoAdjacente,
+              valor1, valor2, resultado,
+              Delta, i, t, C, J, c, a, r, pi, h, A, b, X1, X2;
+public char operador;
+```
 
-### Trigonometria (tecla `t`)
+### Método `Resposta()`
 
-| Função | Tecla | Método | Fórmula |
-|---|---|---|---|
-| Seno | `S` | `TrigonometriaSeno()` | `sen = catetoOposto / hipotenusa` |
-| Cosseno | `C` | `TrigonometriaCosseno()` | `cos = catetoAdjacente / hipotenusa` |
-| Tangente | `T` | `TrigonometriaTangente()` | `tan = catetoOposto / catetoAdjacente` |
+Dispatcher central que executa a operação conforme o `operador`:
 
-### Fórmulas Geométricas (tecla `F`)
-
-| Figura | Tecla | Método | Fórmula |
-|---|---|---|---|
-| Retângulo | `R` | `F_Retangulo()` | `A = b × h` |
-| Triângulo | `T` | `F_Triangulo()` | `A = (b × h) / 2` |
-| Círculo | `C` | `F_Círculo()` | `A = π × r²` |
-| Equação 2º Grau | `º` | `F_Equacao2Grau()` | `Δ = b² - 4ac` → `X1, X2` |
-
-### Juros Simples (tecla `J`)
-
-| Método | Fórmula | Variáveis |
-|---|---|---|
-| `Juros()` | `J = C × i × t` | C = Capital, i = Taxa, t = Tempo |
+```java
+switch (operador) {
+    case '+': Soma();          break;
+    case '-': Subtracao();     break;
+    case '*': Multiplicacao(); break;
+    case '/': Divisao();       break;
+    case '^': Potenciacao();   break;
+    case 'v': RaizQuadrada();  break;
+}
+```
 
 ---
 
-## Como Navegar
+### Operações Aritméticas
 
-Ao executar o programa, o menu principal exibe as opções disponíveis:
+#### `Soma()`
+```
+resultado = valor1 + valor2
+```
+
+#### `Subtracao()`
+```
+resultado = valor1 - valor2
+```
+
+#### `Multiplicacao()`
+```
+resultado = valor1 * valor2
+```
+
+#### `Divisao()`
+```
+resultado = valor1 / valor2
+```
+
+#### `Potenciacao()`
+```
+resultado = Math.pow(valor1, valor2)
+```
+
+#### `RaizQuadrada()`
+```
+resultado = Math.sqrt(valor1)
+```
+
+Todos os métodos acima imprimem com `System.out.printf("\nResultado: %.2f%n", resultado)`.
+
+---
+
+### Fórmulas Geométricas
+
+#### `F_Retangulo()`
+```
+A = b * h
+```
+
+#### `F_Triangulo()`
+```
+A = b * h / 2
+```
+
+#### `F_Círculo()`
+```
+A = pi * Math.pow(r, 2)
+```
+
+#### `F_Equacao2Grau()`
+```
+Delta = Math.pow(b, 2) - 4 * a * c
+X1    = (-b + Math.sqrt(Delta)) / 2 * a
+X2    = (-b - Math.sqrt(Delta)) / 2 * a
+```
+Imprime `Delta`, `X1` e `X2`.
+
+---
+
+### Juros Simples
+
+#### `Juros()`
+```
+J = C * i * t
+```
+- `C` = Capital
+- `i` = Taxa de juros
+- `t` = Tempo
+
+---
+
+### Trigonometria
+
+#### `TrigonometriaSeno()`
+```
+resultado = catetoOposto / hipotenusa
+```
+
+#### `TrigonometriaCosseno()`
+```
+resultado = catetoAdjacente / hipotenusa
+```
+
+#### `TrigonometriaTangente()`
+```
+resultado = catetoOposto / catetoAdjacente
+```
+
+---
+
+## Classe `Legenda`
+
+Responsável por imprimir os menus de navegação no console.
+
+### `ImprimeLegenda()`
+
+Menu principal exibido ao usuário:
 
 ```
 |---------------------------------------|
@@ -118,35 +171,42 @@ Ao executar o programa, o menu principal exibe as opções disponíveis:
 |---------------------------------------|
 ```
 
-Ao selecionar **Trigonometria (`t`)** ou **Fórmulas (`F`)**, um submenu adicional é exibido com as opções correspondentes.
+### `ImprimeLegendaTri()`
+
+Submenu de trigonometria:
+
+```
+|---------------------------------------|
+|Seno aperte o caracter     |'S'|       |
+|---------------------------------------|
+|Cosseno aperte o caracter    |'C'|     |
+|---------------------------------------|
+|Tangente aperte o caracter  |'T'|      |
+|---------------------------------------|
+```
+
+### `ImprimeLegendaForm()`
+
+Submenu de fórmulas geométricas:
+
+```
+|---------------------------------------|
+|Retangulo aperte o caracter     |'R'|  |
+|---------------------------------------|
+|Triangulo aperte o caracter    |'T'|   |
+|---------------------------------------|
+|Circulo aperte o caracter  |'C'|       |
+|---------------------------------------|
+|Equação 2ºGrau aperte o caracter |'º'| |
+|---------------------------------------|
+```
 
 ---
 
 ## Formato de Saída
 
-Todos os resultados são exibidos com **2 casas decimais**:
+Todos os resultados são formatados com duas casas decimais:
 
+```java
+System.out.printf("\nResultado: %.2f%n", resultado);
 ```
-Resultado: 12.50
-```
-
----
-
-## Contexto Acadêmico
-
-Este projeto foi desenvolvido para fins acadêmicos com o objetivo de praticar os conceitos de:
-
-- Orientação a Objetos em Java (classes, métodos, atributos)
-- Estruturas de controle (`switch-case`)
-- Uso da biblioteca `Math` do Java (`Math.pow`, `Math.sqrt`)
-- Formatação de saída com `System.out.printf`
-- Organização de código em pacotes (`package`)
-- Implementação de fórmulas matemáticas em código
-
----
-
-## Observações
-
-- O projeto não possui tratamento de exceções para casos como divisão por zero ou delta negativo na equação do 2º grau.
-- Os arquivos `dominioCalc` e `appCalc` contêm a mesma classe `Calculadora`, possivelmente por duplicação durante o desenvolvimento.
-- Todo o código e os menus estão escritos em **português**.
